@@ -1,0 +1,30 @@
+
+#this is the susaan managent of list to provided into the lolcal repo
+
+class HotelManagement:
+    def __init__(self):
+        self.hotels = []
+
+    def add_hotel(self, name, location, rating):
+        self.hotels.append({'name': name, 'location': location, 'rating': rating})
+        print(f"Hotel '{name}' added.")
+
+    def remove_hotel(self, name):
+        self.hotels = [hotel for hotel in self.hotels if hotel['name'] != name]
+        print(f"Hotel '{name}' removed.")
+
+    def list_hotels(self):
+        if not self.hotels:
+            print("No hotels available.")
+        else:
+            for hotel in self.hotels:
+                print(f"Name: {hotel['name']}, Location: {hotel['location']}, Rating: {hotel['rating']}")
+
+# Example usage
+hotel_manager = HotelManagement()
+hotel_manager.add_hotel("Seaside Inn", "California", 4.5)
+hotel_manager.add_hotel("Mountain Lodge", "Colorado", 4.0)
+hotel_manager.list_hotels()
+hotel_manager.remove_hotel("Seaside Inn")
+hotel_manager.list_hotels()
+
